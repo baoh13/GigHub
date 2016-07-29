@@ -168,6 +168,7 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\GigsController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Global.asax.cs">
@@ -185,6 +186,10 @@
     <Compile Include="Migrations\201607291512477_UpdateGigAndGenreModels.Designer.cs">
       <DependentUpon>201607291512477_UpdateGigAndGenreModels.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201607291553361_PopulateGenres.cs" />
+    <Compile Include="Migrations\201607291553361_PopulateGenres.Designer.cs">
+      <DependentUpon>201607291553361_PopulateGenres.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\ApplicationDbContext.cs" />
@@ -194,6 +199,7 @@
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
+    <Compile Include="ViewModels\GigFormViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="App_Data\aspnet-GigHub-20160728054544.mdf" />
@@ -254,6 +260,7 @@
     <Content Include="Views\Manage\VerifyPhoneNumber.cshtml" />
     <Content Include="Views\Shared\Lockout.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
+    <Content Include="Views\Gigs\Create.cshtml" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
@@ -273,6 +280,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201607291512477_UpdateGigAndGenreModels.resx">
       <DependentUpon>201607291512477_UpdateGigAndGenreModels.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201607291553361_PopulateGenres.resx">
+      <DependentUpon>201607291553361_PopulateGenres.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
