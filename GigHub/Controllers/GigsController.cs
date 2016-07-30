@@ -29,6 +29,12 @@ namespace GigHub.Controllers
         [HttpPost]
         public ActionResult Create(GigFormViewModel model)
         {
+            if (!ModelState.IsValid)
+            {
+                model.Genres = _context.Genres;
+                return View(model);
+            }
+
             var gig = new Gig
             {
                 Venue = model.Venue,
