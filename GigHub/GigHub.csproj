@@ -198,12 +198,16 @@
     <Compile Include="Migrations\201607301249314_ChangeTypeOfUserId.Designer.cs">
       <DependentUpon>201607301249314_ChangeTypeOfUserId.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201607301517061_ExtendApplicationUserModel.cs" />
+    <Compile Include="Migrations\201607301517061_ExtendApplicationUserModel.Designer.cs">
+      <DependentUpon>201607301517061_ExtendApplicationUserModel.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\ApplicationDbContext.cs" />
     <Compile Include="Models\Genre.cs" />
     <Compile Include="Models\Gig.cs" />
-    <Compile Include="Models\IdentityModels.cs" />
+    <Compile Include="Models\ApplicationUser.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
@@ -299,6 +303,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201607301249314_ChangeTypeOfUserId.resx">
       <DependentUpon>201607301249314_ChangeTypeOfUserId.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201607301517061_ExtendApplicationUserModel.resx">
+      <DependentUpon>201607301517061_ExtendApplicationUserModel.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
