@@ -100,3 +100,6 @@ h6,
     border-radius: 8px;
 }
 
+.field-validation-error {
+    color: red;
+}
