@@ -10,12 +10,15 @@ namespace GigHub.ViewModels
     {
         [Required]
         public string Venue { get; set; }
+
         [Required]
         [FutureDate]
         public string Date { get; set; }
+
         [Required]
         [ValidTime]
         public string Time { get; set; }
+
         [Required]
         public int Genre { get; set; }
         public IEnumerable<Genre> Genres { get; set; }

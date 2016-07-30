@@ -1,11 +1,13 @@
 ﻿using GigHub.Models;
 using GigHub.ViewModels;
 using Microsoft.AspNet.Identity;
+using System;
+using System.Data.Entity;
+using System.Linq;
 using System.Web.Mvc;
 
 namespace GigHub.Controllers
 {
-
     [Authorize]
     public class GigsController : Controller
     {
@@ -15,12 +17,12 @@ namespace GigHub.Controllers
         {
             _context = new ApplicationDbContext();
         }
-
+        
         public ActionResult Create()
         {
             var gigFormViewModel = new GigFormViewModel
             {
-                Genres = _context.Genres
+                Genres = _context.Genres.ToList()
             };
 
             return View(gigFormViewModel);
@@ -32,7 +34,7 @@ namespace GigHub.Controllers
         {
             if (!ModelState.IsValid)
             {
-                model.Genres = _context.Genres;
+                model.Genres = _context.Genres.ToList();
                 return View(model);
             }
 
@@ -47,7 +49,17 @@ namespace GigHub.Controllers
             _context.Gigs.Add(gig);
             _context.SaveChanges();
 
-            return RedirectToAction("Index", "Home");
+            return RedirectToAction("UpComingGigs", "Gigs");
+        }
+
+        public ActionResult UpComingGigs()
+        {
+            var upcomingGigs = _context.Gigs
+                                       .Where(g => g.DateTime > DateTime.Now)
+                                       .Include(g => g.Genre)
+                                       .Include(g => g.User)
+                                       .ToList();
+            return View(upcomingGigs);
         }
     }
 }

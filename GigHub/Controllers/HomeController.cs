@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using System.Web.Mvc;
+﻿using System.Web.Mvc;
 
 namespace GigHub.Controllers
 {
@@ -10,7 +6,7 @@ namespace GigHub.Controllers
     {
         public ActionResult Index()
         {
-            return View();
+            return RedirectToAction("UpcomingGigs", "Gigs");
         }
 
         public ActionResult About()

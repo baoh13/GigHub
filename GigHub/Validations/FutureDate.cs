@@ -10,8 +10,8 @@ namespace GigHub.Validations
         {
             DateTime dateTime;
             var isValid = DateTime.TryParseExact(
-                                                    value.ToString(), 
-                                                    "d MMM yyyy",
+                                                    Convert.ToString(value), 
+                                                    "dd/MM/yyyy",
                                                     CultureInfo.CurrentCulture,
                                                     DateTimeStyles.None,
                                                     out dateTime);

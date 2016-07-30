@@ -1,5 +1,5 @@
 ﻿body {
-    padding-top: 50px;
+    padding-top: 90px;
     padding-bottom: 20px;
     font-size: 17px;
 }
@@ -102,4 +102,54 @@ h6,
 
 .field-validation-error {
     color: red;
+}
+
+/*Override page level*/
+
+.gigs {
+    list-style: none;
+}
+
+.gigs > li {
+    position: relative;
+    margin-bottom: 30px;
+}
+
+.gigs > li .date {
+    background-color: red;
+    width: 60px;
+    text-align: center;
+    -ms-border-radius: 8px;
+    border-radius: 8px;
+}
+
+.gigs > li .date .month {
+    text-transform: uppercase;
+    font-weight: 700;
+    font-size: 15px;
+    padding: 5px 10px;
+}
+
+.gigs > li .date .day {
+    background-color: #f7f7f7;
+    color: #333;
+}
+
+.gigs > li .details {
+    position: absolute;
+    left: 80px;
+    top: 0;
+    
+}
+
+.gigs > li .details .artist {
+    display: block;
+    font-weight: 700;
+    font-size: 15px;
+    padding: 5px 10px;
+}
+
+.gigs > li .details .venue {
+    font-size: 15px;
+    padding: 5px 10px;
 }
