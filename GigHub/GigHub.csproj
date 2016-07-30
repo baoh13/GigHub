@@ -202,8 +202,13 @@
     <Compile Include="Migrations\201607301517061_ExtendApplicationUserModel.Designer.cs">
       <DependentUpon>201607301517061_ExtendApplicationUserModel.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201607302343578_ChangeGigsPropertyNames.cs" />
+    <Compile Include="Migrations\201607302343578_ChangeGigsPropertyNames.Designer.cs">
+      <DependentUpon>201607302343578_ChangeGigsPropertyNames.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\ApplicationDbContext.cs" />
+    <Compile Include="Models\Attendance.cs" />
     <Compile Include="Models\Genre.cs" />
     <Compile Include="Models\Gig.cs" />
     <Compile Include="Models\ApplicationUser.cs" />
@@ -322,6 +327,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201607301517061_ExtendApplicationUserModel.resx">
       <DependentUpon>201607301517061_ExtendApplicationUserModel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201607302343578_ChangeGigsPropertyNames.resx">
+      <DependentUpon>201607302343578_ChangeGigsPropertyNames.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

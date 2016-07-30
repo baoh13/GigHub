@@ -14,27 +14,10 @@
                 <div class="month">@gig.DateTime.ToString("MMM")</div>
                 <div class="day">@gig.DateTime.ToString("d ")</div>
                 <div class="details">
-                    <span class="artist">@gig.User.Name</span>
+                    <span class="artist">@gig.Artist.Name</span>
                     <span class="venue">@gig.Venue</span>
                 </div>
             </div>
         </li>
     }
 </ul>
-
-
-@*<ul class="gigs">
-    @foreach (var gig in Model)
-    {
-        <li class="gig">
-            <div class="date">
-                <div class="month">@gig.DateTime.ToString("MMM")</div>
-                <div class="day">@gig.DateTime.ToString("d ")</div>
-            </div>
-            <div class="details">
-                <span class="artist">@gig.User.Name</span>
-                <span class="venue">@gig.Genre.Name</span>
-            </div>
-        </li>
-    }
-</ul>*@

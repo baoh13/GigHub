@@ -19,9 +19,9 @@ namespace GigHub.Models
         [Required]
         public int GenreId { get; set; }
 
-        public ApplicationUser User { get; set; }
+        public ApplicationUser Artist { get; set; }
 
         [Required]
-        public string UserId { get; set; }
+        public string ArtistId { get; set; }
     }
 }

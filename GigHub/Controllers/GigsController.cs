@@ -42,7 +42,7 @@ namespace GigHub.Controllers
             {
                 Venue = model.Venue,
                 GenreId = model.Genre,
-                UserId = User.Identity.GetUserId(),
+                ArtistId = User.Identity.GetUserId(),
                 DateTime = model.GetDateTime()
             };
 
@@ -57,7 +57,7 @@ namespace GigHub.Controllers
             var upcomingGigs = _context.Gigs
                                        .Where(g => g.DateTime > DateTime.Now)
                                        .Include(g => g.Genre)
-                                       .Include(g => g.User)
+                                       .Include(g => g.Artist)
                                        .ToList();
             return View(upcomingGigs);
         }
