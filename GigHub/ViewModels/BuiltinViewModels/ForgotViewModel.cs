@@ -1,11 +1,10 @@
 using System.ComponentModel.DataAnnotations;
 
-namespace GigHub.ViewModels
+namespace GigHub.ViewModels.BuiltinViewModels
 {
-    public class ForgotPasswordViewModel
+    public class ForgotViewModel
     {
         [Required]
-        [EmailAddress]
         [Display(Name = "Email")]
         public string Email { get; set; }
     }

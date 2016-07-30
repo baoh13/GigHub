@@ -2,7 +2,7 @@
 using Microsoft.AspNet.Identity;
 using Microsoft.Owin.Security;
 
-namespace GigHub.ViewModels
+namespace GigHub.ViewModels.BuiltinViewModels
 {
     public class ManageLoginsViewModel
     {
