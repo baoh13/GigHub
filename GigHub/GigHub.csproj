@@ -258,7 +258,7 @@
     <Compile Include="ViewModels\BuiltinViewModels\VerifyCodeViewModel.cs" />
     <Compile Include="ViewModels\BuiltinViewModels\VerifyPhoneNumberViewModel.cs" />
     <Compile Include="ViewModels\GigFormViewModel.cs" />
-    <Compile Include="ViewModels\UpComingGigsViewModel.cs" />
+    <Compile Include="ViewModels\GigsViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="App_Data\aspnet-GigHub-20160728054544.mdf" />
@@ -320,7 +320,6 @@
     <Content Include="Views\Shared\Lockout.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
     <Content Include="Views\Gigs\Create.cshtml" />
-    <Content Include="Views\Gigs\UpComingGigs.cshtml" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>

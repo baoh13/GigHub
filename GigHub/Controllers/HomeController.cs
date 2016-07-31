@@ -1,12 +1,34 @@
-﻿using System.Web.Mvc;
+﻿using GigHub.Models;
+using GigHub.ViewModels;
+using System;
+using System.Data.Entity;
+using System.Linq;
+using System.Web.Mvc;
 
 namespace GigHub.Controllers
 {
     public class HomeController : Controller
     {
+        private ApplicationDbContext _context;
+        public HomeController()
+        {
+            _context = new ApplicationDbContext();
+        }
+
         public ActionResult Index()
         {
-            return RedirectToAction("UpcomingGigs", "Gigs");
+            var upcomingGigs = _context.Gigs
+                                      .Where(g => g.DateTime > DateTime.Now)
+                                      .Include(g => g.Genre)
+                                      .Include(g => g.Artist)
+                                      .ToList();
+
+            var model = new GigsViewModel
+            {
+                ShowingTheActions = User.Identity.IsAuthenticated,
+                UpcomingGigs = upcomingGigs
+            };
+            return View(model);
         }
 
         public ActionResult About()

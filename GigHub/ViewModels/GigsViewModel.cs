@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace GigHub.ViewModels
 {
-    public class UpComingGigsViewModel
+    public class GigsViewModel
     {
         public IEnumerable<Gig> UpcomingGigs { get; set; }
         public bool ShowingTheActions { get; set; }
