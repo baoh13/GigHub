@@ -1,4 +1,4 @@
-﻿@model IEnumerable<GigHub.Models.Gig>
+﻿@model GigHub.ViewModels.UpComingGigsViewModel
 @{
     ViewBag.Title = "title";
     Layout = "~/Views/Shared/_Layout.cshtml";
@@ -7,7 +7,7 @@
 <h2>Upcoming gigs</h2>
 
 <ul class="gigs">
-    @foreach (var gig in Model)
+    @foreach (var gig in Model.UpcomingGigs.ToList())
     {
         <li>
             <div class="date">
@@ -16,23 +16,40 @@
                 <div class="details">
                     <span class="artist">
                         @gig.Artist.Name
-                        <button type="submit" class="btn btn-link btn-sm js-toggle-follow">Follow</button>
+                        @if (Model.ShowingTheActions)
+                        {
+                            <button data-artist-id="@gig.ArtistId" type="submit" class="btn btn-link btn-sm js-toggle-follow">Follow</button>
+                        }
 
                     </span>
                     <span class="venue">
                         @gig.Venue
-                        <button data-gig-id="@gig.Id" type="submit" class="btn btn-default btn-sm js-attending-gig pull-right">Going?</button>
+                        @if (Model.ShowingTheActions)
+                        {
+                            <button data-gig-id="@gig.Id" type="submit" class="btn btn-default btn-sm js-attending-gig pull-right">Going?</button>
+                        }
                     </span>
-                    </div>
+                </div>
             </div>
-        </li>
+         </li>
     }
 </ul>
 
 @section scripts{
     <script type="text/javascript">
 
-        $(document).ready(function() {
+        $(document).ready(function () {
+            $(".js-toggle-follow").click(function (e) {
+                var btn = $(e.target);
+                $.post("/api/followings", { "": btn.attr("data-artist-id") })
+                    .done(function () {
+                        btn.text("Following");
+                    })
+                    .fail(function () {
+                        alert("Already following!!!");
+                    });
+            });
+
             $(".js-attending-gig").click(function(e) {
                 var btn = $(e.target);
                 $.post("/api/attendances", { "": btn.attr("data-gig-id") })

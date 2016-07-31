@@ -175,6 +175,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Apis\AttendancesController.cs" />
+    <Compile Include="Apis\FollowingsController.cs" />
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\IdentityConfig.cs" />
@@ -224,9 +225,14 @@
     <Compile Include="Migrations\201607302351171_AddAttendanceModel.Designer.cs">
       <DependentUpon>201607302351171_AddAttendanceModel.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201607310058024_AddFollowingModel.cs" />
+    <Compile Include="Migrations\201607310058024_AddFollowingModel.Designer.cs">
+      <DependentUpon>201607310058024_AddFollowingModel.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\ApplicationDbContext.cs" />
     <Compile Include="Models\Attendance.cs" />
+    <Compile Include="Models\Following.cs" />
     <Compile Include="Models\Genre.cs" />
     <Compile Include="Models\Gig.cs" />
     <Compile Include="Models\ApplicationUser.cs" />
@@ -252,6 +258,7 @@
     <Compile Include="ViewModels\BuiltinViewModels\VerifyCodeViewModel.cs" />
     <Compile Include="ViewModels\BuiltinViewModels\VerifyPhoneNumberViewModel.cs" />
     <Compile Include="ViewModels\GigFormViewModel.cs" />
+    <Compile Include="ViewModels\UpComingGigsViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="App_Data\aspnet-GigHub-20160728054544.mdf" />
@@ -351,6 +358,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201607302351171_AddAttendanceModel.resx">
       <DependentUpon>201607302351171_AddAttendanceModel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201607310058024_AddFollowingModel.resx">
+      <DependentUpon>201607310058024_AddFollowingModel.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

@@ -8,7 +8,7 @@ using System.Web.Mvc;
 
 namespace GigHub.Controllers
 {
-    [Authorize]
+
     public class GigsController : Controller
     {
         private ApplicationDbContext _context;
@@ -17,7 +17,8 @@ namespace GigHub.Controllers
         {
             _context = new ApplicationDbContext();
         }
-        
+
+        [Authorize]
         public ActionResult Create()
         {
             var gigFormViewModel = new GigFormViewModel
@@ -30,6 +31,7 @@ namespace GigHub.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [Authorize]
         public ActionResult Create(GigFormViewModel model)
         {
             if (!ModelState.IsValid)
@@ -45,7 +47,7 @@ namespace GigHub.Controllers
                 ArtistId = User.Identity.GetUserId(),
                 DateTime = model.GetDateTime()
             };
-
+            
             _context.Gigs.Add(gig);
             _context.SaveChanges();
 
@@ -59,7 +61,13 @@ namespace GigHub.Controllers
                                        .Include(g => g.Genre)
                                        .Include(g => g.Artist)
                                        .ToList();
-            return View(upcomingGigs);
+
+            var model = new UpComingGigsViewModel
+            {
+                ShowingTheActions = User.Identity.IsAuthenticated,
+                UpcomingGigs = upcomingGigs
+            };
+            return View(model);
         }
     }
 }
