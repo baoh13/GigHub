@@ -183,6 +183,7 @@
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\FolloweesController.cs" />
     <Compile Include="Controllers\GigsController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
@@ -240,6 +241,7 @@
     <Compile Include="Startup.cs" />
     <Compile Include="Validations\FutureDate.cs" />
     <Compile Include="Validations\ValidTime.cs" />
+    <Compile Include="ViewModels\ArtistViewModel.cs" />
     <Compile Include="ViewModels\BuiltinViewModels\AddPhoneNumberViewModel.cs" />
     <Compile Include="ViewModels\BuiltinViewModels\ChangePasswordViewModel.cs" />
     <Compile Include="ViewModels\BuiltinViewModels\ConfigureTwoFactorViewModel.cs" />
@@ -320,6 +322,7 @@
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
     <Content Include="Views\Gigs\Create.cshtml" />
     <Content Include="Views\Shared\GigsView.cshtml" />
+    <Content Include="Views\Followees\Index.cshtml" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
