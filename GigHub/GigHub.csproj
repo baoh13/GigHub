@@ -323,6 +323,7 @@
     <Content Include="Views\Gigs\Create.cshtml" />
     <Content Include="Views\Shared\GigsView.cshtml" />
     <Content Include="Views\Followees\Index.cshtml" />
+    <Content Include="Views\Gigs\MyUpComingGigs.cshtml" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>

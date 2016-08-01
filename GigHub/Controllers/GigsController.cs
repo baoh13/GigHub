@@ -1,6 +1,7 @@
 ﻿using GigHub.Models;
 using GigHub.ViewModels;
 using Microsoft.AspNet.Identity;
+using System;
 using System.Data.Entity;
 using System.Linq;
 using System.Web.Mvc;
@@ -16,7 +17,26 @@ namespace GigHub.Controllers
         {
             _context = new ApplicationDbContext();
         }
-        
+
+        public ActionResult MyUpComingGigs()
+        {
+            var userId = User.Identity.GetUserId();
+            var myUpcomingGigs = _context.Gigs
+                                         .Where(g => g.ArtistId == userId && g.DateTime > DateTime.Now)
+                                         .Include(g => g.Genre)
+                                         .Include(g => g.Artist)
+                                         .ToList();
+
+            var gigsViewModel = new GigsViewModel
+            {
+                Header = "My Upcoming Gigs",
+                ShowingTheActions = User.Identity.IsAuthenticated,
+                UpcomingGigs = myUpcomingGigs
+            };
+
+            return View(gigsViewModel);
+        }
+
         public ActionResult Create()
         {
             var gigFormViewModel = new GigFormViewModel
@@ -48,7 +68,7 @@ namespace GigHub.Controllers
             _context.Gigs.Add(gig);
             _context.SaveChanges();
 
-            return RedirectToAction("Index", "Home");
+            return RedirectToAction("MyUpcomingGigs", "Gigs");
         }
 
         public ActionResult AttendingGigs()
