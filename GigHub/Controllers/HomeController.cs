@@ -26,9 +26,11 @@ namespace GigHub.Controllers
             var model = new GigsViewModel
             {
                 ShowingTheActions = User.Identity.IsAuthenticated,
-                UpcomingGigs = upcomingGigs
+                UpcomingGigs = upcomingGigs,
+                Header = "Upcoming gigs"
             };
-            return View(model);
+
+            return View("GigsView", model);
         }
 
         public ActionResult About()
