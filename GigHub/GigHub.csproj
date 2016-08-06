@@ -320,7 +320,7 @@
     <Content Include="Views\Manage\VerifyPhoneNumber.cshtml" />
     <Content Include="Views\Shared\Lockout.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
-    <Content Include="Views\Gigs\Create.cshtml" />
+    <Content Include="Views\Gigs\GigForm.cshtml" />
     <Content Include="Views\Shared\GigsView.cshtml" />
     <Content Include="Views\Followees\Index.cshtml" />
     <Content Include="Views\Gigs\MyUpComingGigs.cshtml" />
