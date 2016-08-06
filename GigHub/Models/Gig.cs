@@ -1,4 +1,4 @@
-﻿using GigHub.Models.Enums;
+﻿using GigHub.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -40,12 +40,33 @@ namespace GigHub.Models
         {
             IsCanceled = true;
 
-            var notification = new Notification(notificationType: NotificationType.GigCanceled, gig: this);
+            var notification = Notification.GigCanceled(gig: this);
 
+            Notify(notification);
+        }
+
+        public void Update(GigFormViewModel model)
+        {
+            var notification = Notification.GigUpdated(
+                gig: this, originalDateTime: DateTime, originalVenue: Venue);
+
+            DateTime = model.GetDateTime();
+            Venue = model.Venue;
+            GenreId = model.Genre;
+        }
+
+        private void Notify(Notification notification)
+        {
             foreach (var attendance in Attendances)
             {
                 attendance.Attendee.Notify(notification);
             }
+        }
+
+        public void Create()
+        {
+            var notification = Notification.GigCreated(this);
+            Notify(notification: notification);
         }
     }
 }

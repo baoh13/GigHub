@@ -84,7 +84,9 @@ namespace GigHub.Controllers
                 ArtistId = User.Identity.GetUserId(),
                 DateTime = model.GetDateTime()
             };
-            
+
+            gig.Create();
+
             _context.Gigs.Add(gig);
             _context.SaveChanges();
 
@@ -102,10 +104,10 @@ namespace GigHub.Controllers
             }
 
             var userId = User.Identity.GetUserId();
-            var gig = _context.Gigs.Single(g => g.Id == model.Id && g.ArtistId == userId);
-            gig.DateTime = model.GetDateTime();
-            gig.Venue = model.Venue;
-            gig.GenreId = model.Genre;
+            var gig = _context.Gigs.Include(g => g.Attendances.Select(a => a.Attendee))
+                                   .Single(g => g.Id == model.Id && g.ArtistId == userId);
+
+            gig.Update(model);
             
             _context.SaveChanges();
 
