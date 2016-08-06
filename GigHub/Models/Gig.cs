@@ -16,6 +16,8 @@ namespace GigHub.Models
 
         public Genre Genre { get; set; }
 
+        public bool IsCanceled { get; set; }
+
         [Required]
         public int GenreId { get; set; }
 

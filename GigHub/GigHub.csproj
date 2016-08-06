@@ -230,6 +230,10 @@
     <Compile Include="Migrations\201607310058024_AddFollowingModel.Designer.cs">
       <DependentUpon>201607310058024_AddFollowingModel.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201608061309018_AddIsCanceledToGigModel.cs" />
+    <Compile Include="Migrations\201608061309018_AddIsCanceledToGigModel.Designer.cs">
+      <DependentUpon>201608061309018_AddIsCanceledToGigModel.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\ApplicationDbContext.cs" />
     <Compile Include="Models\Attendance.cs" />
@@ -364,6 +368,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201607310058024_AddFollowingModel.resx">
       <DependentUpon>201607310058024_AddFollowingModel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201608061309018_AddIsCanceledToGigModel.resx">
+      <DependentUpon>201608061309018_AddIsCanceledToGigModel.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

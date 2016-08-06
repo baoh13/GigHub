@@ -43,9 +43,8 @@ namespace GigHub.ViewModels
                 Expression<Func<GigsController, ActionResult>> create = c => c.Create(this);
 
                 var action = Id != 0 ? update : create;
-                var actionName = action.Name;
 
-                return actionName;
+                return action.Name;
             }
         }
     }
