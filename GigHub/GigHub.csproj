@@ -174,8 +174,9 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Apis\AttendancesController.cs" />
-    <Compile Include="Apis\FollowingsController.cs" />
+    <Compile Include="Controllers\Apis\AttendancesController.cs" />
+    <Compile Include="Controllers\Apis\FollowingsController.cs" />
+    <Compile Include="Controllers\Apis\GigsController.cs" />
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\IdentityConfig.cs" />
@@ -277,6 +278,7 @@
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
+    <Content Include="Scripts\bootbox.min.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />

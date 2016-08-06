@@ -20,10 +20,80 @@
                     <div class="actions">
                         <a class="update" href="@Url.Action("Update", "Gigs", new { gigId = @gig.Id })">Update</a>
                         <span>|</span>
-                        <a class="delete" href="#">Delete</a>
+                        <a href="#" data-gig-id="@gig.Id" class="js-cancel-gig">Cancel</a>
                     </div>
                 </div>
             </div>
         </li>
     }
 </ul>
+
+@*@section scripts
+{
+    <script>
+        $(document).ready(function() {
+            $(".js-cancel-gig").click(function(e) {
+                var link = $(e.target);
+                if (confirm("Do you want to cancel the gig?")) {
+                    $.ajax({
+                        url: "/api/gigs/" + link.attr("data-gig-id"),
+                        method: "DELETE"
+                    })
+                    .done(function() {
+                            link.parents("li").fadeOut(function() {
+                                this.remove();
+                            });
+                    })
+                    .fail(function() {
+                            alert("Something wrong!!!!");
+                        });
+                }
+            });
+        });
+    </script>
+}*@
+
+
+@section scripts
+{
+
+<script>
+        $(document).ready(function () {
+            $(".js-cancel-gig").click(function (e) {
+                var link = $(e.target);
+
+                bootbox.dialog({
+                    message: "Are you sure You want to cancel this gig?",
+                    title: "Confirm",
+                    buttons: {
+                        yes: {
+                            label: "Yes",
+                            className: "btn-danger",
+                            callback: function () {
+                                $.ajax({
+                                    url: "/api/gigs/" + link.attr("data-gig-id"),
+                                    method: "DELETE"
+                                    })
+                                .done(function () {
+                                    link.parents("li").fadeOut(function () {
+                                        this.remove();
+                                    });
+                                })
+                                .fail(function () {
+                                    alert("Something wrong!!!!");
+                                });
+                            }
+                        },
+                        no: {
+                            label: "No",
+                            className: "btn-default",
+                            callback: function () {
+                                bootbox.hideAll();
+                            }
+                        }
+                    }
+                });
+            });
+        });
+</script>
+}
