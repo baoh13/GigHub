@@ -15,12 +15,21 @@
                 <div class="month">@gig.DateTime.ToString("MMM")</div>
                 <div class="day">@gig.DateTime.ToString("d ")</div>
                 <div class="details">
-                    <span class="artist">@gig.Artist.Name</span>
+                    <span class="artist">
+                        @gig.Artist.Name
+                        @if (gig.IsCanceled)
+                        {
+                            <span class="label label-warning">Canceled</span>
+                        }
+                    </span>
                     <span class="venue">@gig.Venue</span>
                     <div class="actions">
-                        <a class="update" href="@Url.Action("Update", "Gigs", new { gigId = @gig.Id })">Update</a>
-                        <span>|</span>
-                        <a href="#" data-gig-id="@gig.Id" class="js-cancel-gig">Cancel</a>
+                        @if (!gig.IsCanceled)
+                        {
+                            <a class="update" href="@Url.Action("Update", "Gigs", new { gigId = @gig.Id })">Update</a>
+                            <span>|</span>
+                            <a href="#" data-gig-id="@gig.Id" class="js-cancel-gig">Cancel</a>
+                        }   
                     </div>
                 </div>
             </div>

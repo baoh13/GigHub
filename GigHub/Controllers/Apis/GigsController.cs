@@ -5,7 +5,7 @@ using System.Web.Http;
 
 namespace GigHub.Controllers.Apis
 {
-    //[Authorize]
+    [Authorize]
     public class GigsController : ApiController
     {
         private ApplicationDbContext _context;

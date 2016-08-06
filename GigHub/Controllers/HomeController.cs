@@ -18,7 +18,7 @@ namespace GigHub.Controllers
         public ActionResult Index()
         {
             var upcomingGigs = _context.Gigs
-                                      .Where(g => g.DateTime > DateTime.Now && !g.IsCanceled)
+                                      .Where(g => g.DateTime > DateTime.Now)
                                       .Include(g => g.Genre)
                                       .Include(g => g.Artist)
                                       .ToList();

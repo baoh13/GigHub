@@ -41,8 +41,7 @@ namespace GigHub.Controllers
             var userId = User.Identity.GetUserId();
             var myUpcomingGigs = _context.Gigs
                                          .Where(g => g.ArtistId == userId 
-                                                    && g.DateTime > DateTime.Now
-                                                    && !g.IsCanceled)
+                                                    && g.DateTime > DateTime.Now)
                                          .Include(g => g.Genre)
                                          .Include(g => g.Artist)
                                          .ToList();

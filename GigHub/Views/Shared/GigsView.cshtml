@@ -15,19 +15,24 @@
                 <div class="details">
                     <span class="artist">
                         @gig.Artist.Name
+                        @if (gig.IsCanceled)
+                        {
+                            <span class="label label-warning">Canceled</span>
+                        }
+
                         @if (Model.ShowingTheActions)
                         {
                             <button data-artist-id="@gig.ArtistId" type="submit" class="btn btn-link btn-sm js-toggle-follow">Follow</button>
                         }
 
                     </span>
-                    <span class="venue">
+                    <span class="venue pull-left">
                         @gig.Venue
-                        @if (Model.ShowingTheActions)
-                        {
-                            <button data-gig-id="@gig.Id" type="submit" class="btn btn-default btn-sm js-attending-gig pull-right">Going?</button>
-                        }
                     </span>
+                    @if (Model.ShowingTheActions && !gig.IsCanceled)
+                    {
+                        <button data-gig-id="@gig.Id" type="submit" class="btn btn-default btn-sm js-attending-gig pull-right">Going?</button>
+                    }
                 </div>
             </div>
         </li>
