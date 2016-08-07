@@ -23,6 +23,11 @@ namespace GigHub.Models
         [Required]
         public int GigId { get; private set; }
 
+        public Notification()
+        {
+            
+        }
+
         private Notification(NotificationType notificationType, Gig gig)
         {
             if (gig == null)
